@@ -1,0 +1,30 @@
+12_3筆記：
+-- pth --
+Python 的模組搜尋路徑，可以自己定義sys.path，.pth檔名是什麼無所謂，Python只認副檔名。.pth檔案中每行指定一個路徑(最好是絕對路徑)
+把.pth檔放在python的套件底下的site-package，e.g.：python3.6/site-packages
+建議開發python都用conda創虛擬環境來做，好管理
+conda指令可以下載anaconda或mambaforge
+
+
+-- ssh display graph --
+在linux文字化的介面，圖片是透過X-server來顯示，指令用display "img_name"
+另外windows ssh過去linux無法直接用它的X-server來開圖片呈現在windows上，因此ssh必需要附加X11 forwarding才能
+在putty的介面：Connection->SSH->X11，勾選Enable X11 forwarding，X display location: 127.0.0.1:0，而遠端主機的/etc/ssh/sshd_config設定X11Forwarding yes
+
+-- remote tool --
+好用的工具：MobaXterm
+切記如果putty要開X11 forwarding的話，必須要清空MobaXterm的user session
+
+-- 安裝 anaconda (on linux) --
+1. wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
+2. bash Anaconda3-2019.10-Linux-x86_64.sh
+3. 全部都YES或按ENTER
+4. . ~/anaconda3/bin/activate
+5. conda init zsh
+
+-- bash vs source --
+source ~/test = . ~/test；source就是.
+source跟bash最大的差別在於source是用"現有的shell"去做事情，也就是"會改變"現有的環境
+而bash是開"新的shell"去做事情，並將事情的結果回傳給現有的環境，也就是"不會改變"現有的環境
+這也是為什麼安裝anaconda的第4點要用source
+
